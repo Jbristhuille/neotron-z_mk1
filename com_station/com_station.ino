@@ -1,4 +1,4 @@
-#define BLINK_TIME 50
+#define BLINK_TIME 100
 #define LEFT 14
 #define RIGHT 15
 #define DATA_RATE 115200
