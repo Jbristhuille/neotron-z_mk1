@@ -25,6 +25,17 @@ export class Serial {
       path: port,
       baudRate: 115200
     });
+
+    console.log(">>> Serial COM connected !");
+  }
+  /***/
+
+  /**
+  * Send to serial port
+  * @param data - Data to send  
+  */
+  send(data) {
+    this.port.write(data);
   }
   /***/
 }

@@ -3,7 +3,7 @@
 #define RIGHT 15
 #define DATA_RATE 115200
 
-int cmd = 0;
+int cmd = -1;
 
 /**
 * Blink digital ouput
@@ -45,13 +45,23 @@ void loop() {
   cmd = Serial.readString().toInt();
   /***/
 
-  if (cmd == 42) {
-    blink(LEFT, 5);
-    cmd = 0;
+  if (cmd == 113) {
+    digitalWrite(LEFT, HIGH);
+    cmd = -1;
   }
 
-    if (cmd == 58) {
-    blink(RIGHT, 5);
-    cmd = 0;
+  if (cmd == 100) {
+    digitalWrite(RIGHT, HIGH);
+    cmd = -1;
+  }
+
+  if (cmd == 122) {
+    digitalWrite(LEFT, HIGH);
+    digitalWrite(RIGHT, HIGH);
+  }
+
+  if (cmd == 0) {
+    digitalWrite(LEFT, LOW);
+    digitalWrite(RIGHT, LOW);
   }
 } 
