@@ -50,10 +50,6 @@ io.on("connection", (socket) => {
 });
 /***/
 
-/* API */
-
-/***/
-
 /* Server listen */
 app.listen(PORT, () => {
   console.log(`>>> Server start on port ${PORT}`);

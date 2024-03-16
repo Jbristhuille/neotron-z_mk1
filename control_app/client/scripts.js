@@ -2,7 +2,7 @@
  * @Author                : Jbristhuille<jean-baptiste@halfsquare.fr>         *
  * @CreatedDate           : 2024-03-14 13:47:39                               *
  * @LastEditors           : Jbristhuille<jean-baptiste@halfsquare.fr>         *
- * @LastEditDate          : 2024-03-16 13:53:06                               *
+ * @LastEditDate          : 2024-03-16 14:14:37                               *
  *****************************************************************************/
 
 /* SUMMARY
@@ -14,6 +14,17 @@ import { io } from "https://cdn.socket.io/4.7.4/socket.io.esm.min.js";
 /***/
 
 const socket = io("localhost:5001"); // Connect socket
+
+socket.on("connect", () => {
+  let status = document.querySelector(".socket-status");
+  status.classList.add("active");
+});
+
+socket.on("disconnect", () => {
+  let status = document.querySelector(".socket-status");
+  status.classList.remove("active");
+})
+
 let onDown;
 
 const handleInput = (key) => {
