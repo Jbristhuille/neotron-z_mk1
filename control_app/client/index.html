@@ -2,7 +2,7 @@
 * @Author                : Jbristhuille<jean-baptiste@halfsquare.fr>
 * @CreatedDate           : 2024-03-12 18:36:00
 * @LastEditors           : Jbristhuille<jean-baptiste@halfsquare.fr>
-* @LastEditDate          : 2024-03-14 13:47:20
+* @LastEditDate          : 2024-03-16 13:58:28
 -->
 
 <!DOCTYPE html>
@@ -12,8 +12,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neotron-Z MK1 / Control Panel</title>
   <script src="scripts.js" type="module"></script>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <style>
+    .inputs-container {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .input {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .input span {
+      font-size: 34px;
+    }
+
+    .input.active span {
+      color: greenyellow;
+    }
+  </style>
 </head>
 <body>
   <h1>Neotron-Z MK1 / Control Panel</h1>
+
+  <div class="inputs-container">
+    <div class="input left">
+      <span class="material-symbols-outlined">
+        arrow_back
+      </span>
+    </div>
+
+    <div class="input front">
+      <span class="material-symbols-outlined">
+        arrow_upward
+      </span>
+    </div>
+
+    <div class="input right">
+      <span class="material-symbols-outlined">
+        arrow_forward
+      </span>
+    </div>
+  </div>
 </body>
 </html>
