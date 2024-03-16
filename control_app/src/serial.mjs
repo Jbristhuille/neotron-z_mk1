@@ -20,13 +20,43 @@ export class Serial {
   * Initialize serial com
   * @param port - Port to communicate 
   */
-  constructor(port) {
+  constructor() {
+    this.getPortList().then((ports) => {
+      let arduino = ports.find((el) => el.productId == "0043");
+
+      if (arduino) {
+        this.init(arduino.path);
+    
+        console.log(`>>> Connected to arduino on port ${arduino.path} !`);
+      } else {
+        console.log(">>> Arduino not found...");
+      }
+    });
+  }
+  /***/
+
+  /**
+  * Init com to specified port
+  * @param path - Path to port 
+  */
+  init(path) {
     this.port = new SerialPort({
-      path: port,
+      path: path,
       baudRate: 115200
     });
+  }
+  /***/
 
-    console.log(">>> Serial COM connected !");
+  /**
+  * Get port list
+  * @return - List of ports 
+  */
+  getPortList() {
+    return new Promise((resolve) => {
+      SerialPort.list().then((ports) => {
+        return resolve(ports);
+      });
+    })
   }
   /***/
 

@@ -38,7 +38,7 @@ app.use(cors());
 /***/
 
 /* Init serial com */
-const serial = new Serial("COM3"); // Open communication to serial
+const serial = new Serial(); // Open communication to serial
 /***/
 
 /* Init websocket */
@@ -48,6 +48,10 @@ console.log(`>>> Socket server start on port ${SOCKET_PORT}`);
 io.on("connection", (socket) => {
   socket.on("input", (data) => serial.send(String(data)));
 });
+/***/
+
+/* API */
+
 /***/
 
 /* Server listen */
